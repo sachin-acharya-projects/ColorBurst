@@ -1,5 +1,5 @@
 # ColorBurst - Stylish Output
-  ColorBurst is a python module that provide method to print stylish text onto console without any setups. For example, you can print colored text or text with colored background or different styled text like bold, underlined, etc or with all these property with specified color and style for each
+  ColorBurst is a python module that provide method to print stylish text onto console without any setups. For example, you can print colored text or text with colored background or different styled text like bold, underlined, etc or with all these property with specified color and style for each (`pip install colorfull_colorburst`)
 
 ## Table of Contents
 - [Methods](#Methods "Methods")
