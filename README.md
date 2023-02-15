@@ -36,8 +36,8 @@
     After calling init method like so, you can now simply call `ColorBurst().colorize("Hello", "World")` and it will print RED text with CYAN background with double underline. You can override these property for only one line by passing parameter explicitly or you can change these property for any next uses by re-using `init` method.  
     ```python
     """
-    	The code below will print YELLOW text with CYAN as background and DOUBLE UNDERLINE as Text Style
-    	CYAN as background and DOUBLE UNDERLINE as Text Style was stored in previous init method calls
+    The code below will print YELLOW text with CYAN as background and DOUBLE UNDERLINE as Text Style
+    CYAN as background and DOUBLE UNDERLINE as Text Style was stored in previous init method calls
     """
     ColorBurst.colorize("Hello", "World", color=Colors.YELLOW)
     ```
