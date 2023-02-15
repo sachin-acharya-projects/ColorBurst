@@ -106,15 +106,23 @@
     This method is used to revert any formatting done to defaults.
 ## Code
   ```python
+  # Importing required modules
   from ColorBurst import ColorBurst, Colors, Decorations
-  if __name__ == '__main__':
-      color_print = ColorBurst()
-  	
-      color_print.colorize("Hello", "World", color=Colors.RED, background=Colors.GREEN, decoration=Decorations.ITALIC)
-      color_print.RESET
-  	
-      color_print.init(autoreset=True)
-      color_print.colorize("Hello", "World", color=Colors.YELLOW, decoration=Decorations.RAPID_BLINK)
+  
+  # Initializing ColorBurst
+  color_print = ColorBurst()
+  
+  # Printing Hello World in RED with GREEN background and ITALIC as style onto Terminal
+  color_print.colorize("Hello", "World", color=Colors.RED, background=Colors.GREEN, decoration=Decorations.ITALIC)
+  
+  # RESETTING above text style
+  color_print.RESET
+  
+  # Enabling AUTORESET
+  color_print.init(autoreset=True)
+  
+  # RAPID BLINKING YELLOW colored Hello World on to Console
+  color_print.colorize("Hello", "World", color=Colors.YELLOW, decoration=Decorations.RAPID_BLINK)
   ```
 
 [Go Up](#table-of-contents "Go Up")
