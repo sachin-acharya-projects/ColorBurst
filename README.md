@@ -55,13 +55,13 @@
     c.colorize("Hello", "There", color = 'CYAN') # Colors.CYAN
     ```
     **Parameters**
-     - color
+     - color  
      This parameter, type `Colors` represent foreground color. (Default: `None`)
-     - background
+     - background  
      This parameter, type `Colors` represent background color. (Default: `None`)
-     - decoration
+     - decoration  
      This parameter, type `Decorations` represent text style/decoration. (Default: `None`)
-     - autoreset
+     - autoreset  
      This parameter, type `Boolean` represent condition to autoreset after line break or not. (Default: `False`)
 2. **colorize(\*args, color: Colors = None, background: Colors = None, decoration: Decorations = None, separator = None, end = None)**  
     This method can be used to print stylish text onto screen.
@@ -77,17 +77,17 @@
     ````
     Above code will print bold 'Hello-World\n' onto screen with color RED and background CYAN.
     __Parameters__
-     - args (Type: `Tuple`)
+     - args (Type: `Tuple`)  
      These are the positional arguments which will be printed out onto screen. (Default: `''`)
-     - color (Type: `Colors`)
+     - color (Type: `Colors`)  
      Same as color parameter for `init` method. (Default: Terminals' default)
-     - background (Type: `Colors`)
+     - background (Type: `Colors`)  
      Same as background for `init` method. (Default: Terminals' default)
-     - decoration (Type: `Decorations`)
+     - decoration (Type: `Decorations`)  
      Same as decoration parameter for `init` method. (Default: `Decorations.NORMAL`)
-     - separator (Type: `String`)
+     - separator (Type: `String`)  
      This parameter represent separating character for each data in args parameter. (similar to `sep` parameter of `print` statement). (Default:  `' '`)
-     - end (Type: `String`)
+     - end (Type: `String`)  
      This parameter represent what to append at the end of the line. (Default: `\n`)
 3. **RESET**  
     This method is used to reset any text formatting done. This is used when `autoreset` is set to `False` and need to terminate coloring sequence.
