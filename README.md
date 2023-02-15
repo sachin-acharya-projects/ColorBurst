@@ -117,4 +117,4 @@
       color_print.colorize("Hello", "World", color=Colors.YELLOW, decoration=Decorations.RAPID_BLINK)
   ```
 
-[Go Up](#colorburst-stylish-output "Go Up")
+[Go Up](#table-of-contents "Go Up")
