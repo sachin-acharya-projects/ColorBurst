@@ -64,7 +64,7 @@ c.colorize("Hello", "There", color = 'CYAN') # Colors.CYAN
  - autoreset
  This parameter, type `Boolean` represent condition to autoreset after line break or not. (Default: `False`)
 2. **colorize(*args, color: Colors = None, background: Colors = None, decoration: Decorations = None, separator = None, end = None)**  
-	This method can be used to print stylish text onto screen.
+      This method can be used to print stylish text onto screen.
 ````python
 ColorBurst().colorize(
 	"Hello", "World",
@@ -90,7 +90,7 @@ __Parameters__
  - end (Type: `String`)
  This parameter represent what to append at the end of the line. (Default: `\n`)
 3. **RESET**
-	This method is used to reset any text formatting done. This is used when `autoreset` is set to `False` and need to terminate coloring sequence.
+      This method is used to reset any text formatting done. This is used when `autoreset` is set to `False` and need to terminate coloring sequence.
 *Example*
 The code below will print text will RED color and this foreground color will be persistent as autoreset is set to False
 ```python
