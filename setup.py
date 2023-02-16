@@ -5,7 +5,7 @@ BASE = Path(__file__).parent
 LONG_DESCRIPTIONS = (BASE / "README.md").read_text()
 setup(
     name="ChromaticColorBurst",
-    version='1.0.0',
+    version='1.0.1',
     description="You can now print styled TEXT to console/terminal without much of a hassel",
     long_description=LONG_DESCRIPTIONS,
     long_description_content_type="text/markdown",
