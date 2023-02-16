@@ -105,6 +105,8 @@ class ColorBurst:
         Returns:
             any: String if not type_ passed otherwise the type passed will be returned
         """
+        if (isinstance(promptProperty, type)):
+            promptProperty = promptProperty()
         if isinstance(promptProperty, TextProperty):
             prompt_color = promptProperty.color
             prompt_back = promptProperty.background
@@ -120,6 +122,8 @@ class ColorBurst:
         
         text_code = ''
         if text_style:
+            if (isinstance(textProperty, type)):
+                textProperty = textProperty()
             if isinstance(textProperty, TextProperty):
                 text_color = textProperty.color
                 text_back = textProperty.background
@@ -184,3 +188,4 @@ if __name__ == '__main__':
     print(color_print.coloredInput("What is your name? ", promptProperty={
         "color": "RED"
     }))
+    print(color_print.coloredInput("What? ", TextProperty(background='RED'), color_print.getProperty(color='CYAN'), text_style=True))

@@ -13,4 +13,4 @@ echo Deleting Build Directory
 rmdir /S /Q build
 echo Deleting ChromaticColorBurst.egg-info
 rmdir /S /Q ChromaticColorBurst.egg-info
-echo [0m Deleting
+echo [0m Directory Cleaned
