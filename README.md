@@ -21,7 +21,7 @@
   pip install git+https://github.com/sachin-acharya-projects/ColorBurst.git@master
   ```
 
-  Or you can even download wheel file from [dist]('/dist') folder and install it using
+  Or you can even download wheel file from [dist](/dist) folder and install it using
   ```cmd
   pip install wheel-file-name.whl
   ```
