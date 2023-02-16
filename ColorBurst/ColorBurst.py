@@ -23,7 +23,7 @@ class Decorations:
     TRANSPARENT = 'TRANSPARENT'
     STRIKE = 'STRIKE'
     NORMAL_INTENSITY = 'NORMAL_INTENSITY'
-@dataclass
+@dataclass(slots=True)
 class TextProperty:
     color: Colors = None
     background: Colors = None
