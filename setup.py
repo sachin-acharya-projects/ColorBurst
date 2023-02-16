@@ -4,7 +4,7 @@ from pathlib import Path
 BASE = Path(__file__).parent
 LONG_DESCRIPTIONS = (BASE / "README.md").read_text()
 setup(
-    name="ColorFull@ColorBurst",
+    name="ChromaticColorBurst",
     version='1.0.0',
     description="You can now print styled TEXT to console/terminal without much of a hassel",
     long_description=LONG_DESCRIPTIONS,
@@ -24,3 +24,4 @@ setup(
     ],
     include_package_data=True
 )
+# python .\setup.py sdist bdist_wheel

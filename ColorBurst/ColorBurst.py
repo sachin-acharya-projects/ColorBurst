@@ -1,5 +1,6 @@
-__all__ = ['Colors', 'Decorations', 'ColorBurst']
-
+from typing import Dict, Literal, Union, Callable
+from dataclasses import dataclass
+__all__ = ['Colors', 'Decorations', 'ColorBurst', 'TextProperty']
 class Colors:
     BLACK = 'BLACK'
     RED = 'RED'
@@ -22,6 +23,11 @@ class Decorations:
     TRANSPARENT = 'TRANSPARENT'
     STRIKE = 'STRIKE'
     NORMAL_INTENSITY = 'NORMAL_INTENSITY'
+@dataclass
+class TextProperty:
+    color: Colors = None
+    background: Colors = None
+    decoration: Decorations = None
 class ColorBurst:
     __START = '\u001b['
     __RESET = __START + '0m'
@@ -82,11 +88,67 @@ class ColorBurst:
         if background:
             self.__background = ';' + getattr(self.__Background, background)
         if decoration:
-            self.__decoration = getattr(self.__Decorations, decoration)
-            
+            self.__decoration = getattr(self.__Decorations, decoration)   
     @property
     def RESET(self):
         print(f"{self.__RESET}", end='')
+    def coloredInput(self, prompt: str = '', promptProperty: Union[Dict[str, Literal['color', 'background', 'decoration']], TextProperty] = TextProperty, textProperty: Union[TextProperty, Dict[str, Literal['color', 'background', 'decoration']]] = TextProperty, text_style: bool =  False, type_: Callable = None):
+        """You can now take ask colorfull question to your users
+
+        Args:
+            prompt (str): Question or Text to display as Input Prompt
+            promptProperty (Union[Dict[str, Literal[&#39;color&#39;, &#39;background&#39;, &#39;decoration&#39;]], TextProperty], optional): Property (color, background and decoration) of prompt text. Defaults to TextProperty.
+            textProperty (Union[TextProperty, Dict[str, Literal[&#39;color&#39;, &#39;background&#39;, &#39;decoration&#39;]]], optional): Property (color, background, and decoration) of user-input texts. Defaults to TextProperty.
+            text_style (bool, optional): Set True you you want user-input to be colorfull too. Defaults to False.
+            type_ (Callable, optional): What type you want your query to such as int, float or str (default). Defaults to None.
+
+        Returns:
+            any: String if not type_ passed otherwise the type passed will be returned
+        """
+        if isinstance(promptProperty, TextProperty):
+            prompt_color = promptProperty.color
+            prompt_back = promptProperty.background
+            prompt_decc = promptProperty.decoration
+        else:
+            prompt_color = promptProperty.get('color', None)
+            prompt_back = promptProperty.get('background', None)
+            prompt_decc = promptProperty.get('decoration', None)
+        
+        prompt_color = ';' + getattr(self.__Colors, prompt_color) if prompt_color else self.__color
+        prompt_back = ';' + getattr(self.__Background, prompt_back) if prompt_back else self.__background
+        prompt_decc = getattr(self.__Decorations, prompt_decc) if prompt_decc else self.__decoration
+        
+        text_code = ''
+        if text_style:
+            if isinstance(textProperty, TextProperty):
+                text_color = textProperty.color
+                text_back = textProperty.background
+                text_decc = textProperty.decoration
+            else:
+                text_color = textProperty.get('color', None)
+                text_back = textProperty.get('background', None)
+                text_decc = textProperty.get('decoration', None)
+            
+            text_color = ';' + getattr(self.__Colors, text_color) if text_color else self.__color
+            text_back = ';' + getattr(self.__Background, text_back) if text_back else self.__background
+            text_decc = getattr(self.__Decorations, text_decc) if text_decc else self.__decoration
+
+            text_code = self.__RESET + f"{self.__START}{text_decc}{text_color}{text_back}m"
+        query = input(f"{self.__START}{prompt_decc}{prompt_color}{prompt_back}m{prompt}{text_code}")
+        self.RESET
+        return type_(query) if type_ else query
+    def getProperty(self, color: Colors = None, background: Colors = None, decoration: Decorations = None) -> dict:
+        """Generate Argument for the coloredInput's promptProperty or textProperty
+
+        Args:
+            color (Colors, optional): Color for the text. Defaults to None.
+            background (Colors, optional): Background for the text. Defaults to None.
+            decoration (Decorations, optional): Decoration for the text. Defaults to None.
+
+        Returns:
+            TextProperty: Property for the text
+        """
+        return TextProperty(color=color, background=background, decoration=decoration)
     def colorize(self, *args, color: Colors = None, background: Colors = None, decoration: Decorations = None, separator = None, end = None):
         """Output colorfull texts to Standard Output (Console)
         
@@ -119,3 +181,6 @@ if __name__ == '__main__':
     color_print.RESET
     color_print.init(autoreset=True)
     color_print.colorize("Hello", "World", color=Colors.YELLOW)
+    print(color_print.coloredInput("What is your name? ", promptProperty={
+        "color": "RED"
+    }))
