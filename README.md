@@ -6,23 +6,24 @@
 - [Methods](#Methods "Methods")
   - [Colors](#Colors "Colors")
   - [Decorations](#Decorations "Decorations")
+  - [TextProperty](#TextProperty "TextProperty")
   - [ColorBurst](#ColorBurst "ColorBurst")
 - [Code](#Code "Code")
 ## Installation
   You can install this package using `pip` or directly from the github
 
   **Installing with `pip`**
-  ```cmd
+  ```powershell
   pip install ChromaticColorBurst
   ```
 
   **Installing Directly from GitHub**
-  ```cmd
+  ```powershell
   pip install git+https://github.com/sachin-acharya-projects/ColorBurst.git@master
   ```
 
   Or you can even download wheel file from [dist](/dist) folder and install it using
-  ```cmd
+  ```powershell
   pip install wheel-file-name.whl
   ```
 ## Methods
